@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+    <!--Adding external style sheet-->
+    <link rel="stylesheet" href="style_age.css" />
+  </head>
+  <body>
+    <h1>AGE CALCULATOR</h1>
+
+    <div class="container">
+      <div class="agecalculator">
+        <input class="input_box" type="date" id="BirthDate" />
+        <button class="submit_button" type="submit" onclick="Calculator()">
+          submit
+        </button>
+      </div>
+      <p id="display"></p>
+    </div>
+    <!--script -->
+    <script>
+      //calculator function 
+      function Calculator() {
+
+        document.getElementById(
+          "BirthDate"
+        ).max = new Date().toISOString().split("T")[0];//convert the Date into ISO string format and remove the time
+
+        //To get current Date
+        var date = new Date();
+        var Cmonth = date.getMonth() + 1;
+        var Cday = date.getDate();
+        var Cyear = date.getFullYear();
+
+        //to get Birth date
+        var birthDate = new Date(document.getElementById("BirthDate").value);
+
+        //access the date month and fullyear and assign to respected variables
+        var Bdate = birthDate.getDate();
+        var Bmonth = birthDate.getMonth() + 1;
+        var Byear = birthDate.getFullYear();
+
+        //logic for age calculation
+        var days, Months, years;
+        years = Cyear - Byear;
+        if (Cmonth >= Bmonth) {
+          months = Cmonth - Bmonth;
+        } else {
+          years--;
+          months = 12 + Cmonth - Bmonth;
+        }
+        if (Cday >= Bdate) {
+          days = Cday - Bdate;
+        } else {
+          months--;
+          days = getDaysinMonth(Byear, Bmonth) + Cday - Bdate;
+        }
+        if (months < 0) {
+          months = 11;
+          years--;
+        }
+        //function for to get days in month
+        function getDaysinMonth(Byear, Bmonth) {
+          return new Date(Byear, Bmonth, 0).getDate();
+        }
+        //increase the height of the container to display result
+        document.getElementsByClassName("container")[0].style.height = "150px";
+        document.getElementById(
+          "display"
+        ).innerHTML = `${years} year ${months} month ${days} days`;
+      }
+    </script>
+  </body>
+</html>
