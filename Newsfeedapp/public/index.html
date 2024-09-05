@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlashFacts</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+    <div class="container container-nav flex">
+        <div>
+            <a href=""><h2>FlashFacts</h2></a>
+            
+        </div>
+        <nav >
+            <ul class="flex">
+                <li class="hover-link nav-item" id="entertainment" onclick="updateCategory('entertainment')">General</li>
+                <li class="hover-link nav-item" id="entertainment" onclick="updateCategory('entertainment')">entertainment</li>
+                <li class="hover-link nav-item" id="sports" onclick="updateCategory('sports')">sports</li>
+                <li class="hover-link nav-item" id="science" onclick="updateCategory('science')">science</li>
+                <li class="hover-link nav-item" id="technology" onclick="updateCategory('technology')">technology</li>
+            </ul> 
+        </nav>
+        <div class="searchbar flex">
+            <input type="text" placeholder="type here" class="search-input">
+            <button class="search-button"  onclick="serachBox()">Search</button>
+        </div>
+
+    </div>
+</header>
+<main>
+    <div class="container-card container flex" id="cards-container">
+     </div>
+</main>
+<!--<div class="card">
+            <img src="https://via.placeholder.com/400x200" alt="image">
+            <div class="card-detail">
+                <h3>this is title</h2>
+                    <h6>End gedget</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum culpa, necessitatibus explicabo excepturi mollitia ipsum, accusamus quo eligendi commodi in ratione libero itaque. Obcaecati, cupiditate molestiae? A voluptatem animi architecto?</p>
+            </div>
+    
+        </div>-->
+<script type="text/javascript" src="javascript.js"></script>
+</body>
+</html>
